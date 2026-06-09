@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Someone Special ❤️</title>
+<link rel="stylesheet" href="style.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#ff4b91,#ff758c,#ff7eb3,#ff4081);
+    background-size:400% 400%;
+    animation:bg 8s ease infinite;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    text-align:center;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 0 30px rgba(255,255,255,0.3);
+    width:90%;
+    max-width:650px;
+    z-index:10;
+}
+
+h1{
+    color:white;
+    font-size:4rem;
+    text-shadow:
+    0 0 10px #fff,
+    0 0 20px #ff4d6d,
+    0 0 40px #ff4d6d;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.05);
+    }
+}
+
+.message{
+    color:white;
+    font-size:1.3rem;
+    margin-top:20px;
+    line-height:1.8;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+button{
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    font-size:1.2rem;
+    cursor:pointer;
+    margin:10px;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.yes{
+    background:white;
+    color:#ff2d75;
+    box-shadow:0 0 20px rgba(255,255,255,.8);
+}
+
+.yes:hover{
+    transform:scale(1.1);
+}
+
+.no{
+    background:#6c63ff;
+    color:white;
+    position:relative;
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    font-size:25px;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>I Love You ❤️</h1>
+
+    <div class="message">
+        From the day I met you, <br>
+        my world became more beautiful. ✨<br><br>
+
+        Your smile is my favorite view,
+        your happiness is my favorite dream. 💕<br><br>
+
+        Will you make me the happiest person
+        and be a special part of my life forever? ❤️🥺
+    </div>
+
+    <div class="buttons">
+        <button class="yes" onclick="accepted()">YES ❤️</button>
+        <button class="no" id="noBtn">NO 😅</button>
+    </div>
+
+</div>
+
+<script>
+
+// Floating Hearts
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(20+Math.random()*30)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,300);
+
+// Runaway NO Button
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+    const x=Math.random()*(window.innerWidth-150);
+    const y=Math.random()*(window.innerHeight-80);
+
+    noBtn.style.position="absolute";
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+});
+
+// YES Click
+function accepted(){
+    document.body.innerHTML=`
+    <div style="
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#ff4b91,#ff758c);
+    color:white;
+    text-align:center;
+    ">
+    
+    <h1 style="
+    font-size:5rem;
+    text-shadow:0 0 20px white;">
+    ❤️ YAY ❤️
+    </h1>
+
+    <h2 style="margin-top:20px;">
+    You just made my life more beautiful 💖
+    </h2>
+
+    <p style="
+    margin-top:20px;
+    font-size:1.4rem;">
+    I promise to always care for you,<br>
+    respect you and make countless memories together ✨🥰
+    </p>
+
+    <div style="font-size:100px;margin-top:20px;">
+    💍❤️🌹
+    </div>
+
+    </div>
+    `;
+}
+</script>
+    <script src="Script.js"></script>
+</body>
+</html>
